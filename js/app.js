@@ -19,7 +19,9 @@ toggleDisplay.innerText = tickets
 const submitBtn = document.getElementById('submitBtn')
 
 submitBtn.addEventListener('click', (e) => {
-    console.log('click')
+    e.preventDefault()
+    updateData()
+    
 } )
 
 const updateData =()=> {
@@ -35,14 +37,20 @@ const updateData =()=> {
 }
 
 const getTicketAmt = (id)=> {
+    const totalTickets = document.getElementById('totalTickets')
 
 
-    
+
+
     if (id == 'add') {
         tickets++
     }else if (id == 'subtract' && tickets > 0) {
         tickets
     }
+
+    toggleDisplay,innerText = tickets
+
+    totalTickets.value = tickets
 
     return tickets
     }
